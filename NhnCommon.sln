@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhnCommon.Shared", "NhnComm
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhnCommon", "NhnCommon\NhnCommon.csproj", "{7C101F17-5E95-47E2-9004-662817C0D75D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "90 Shared", "90 Shared", "{514EED70-B1D1-45C6-BAB4-81C60772E0A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{23D3240D-DB6D-40C4-ADEB-155AFE8F1596} = {D199133B-F2AA-4B29-B2CD-686A15ABB32A}
+		{7C101F17-5E95-47E2-9004-662817C0D75D} = {514EED70-B1D1-45C6-BAB4-81C60772E0A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CEA4B668-5945-4EBD-BFA7-4DAF9BA5F223}
