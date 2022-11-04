@@ -43,6 +43,20 @@ public sealed class SwaggerModule : IModule
             BearerFormat = "JWT",
             Description = "Please enter a valid token"
         });
+        options.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme()
+                {
+                    Reference = new OpenApiReference()
+                    {
+                        Id = "Bearer",
+                        Type = ReferenceType.SecurityScheme
+                    }
+                },
+                new List<string>()
+            }
+        });
 
         ConfigureXmlComments(options);
     }

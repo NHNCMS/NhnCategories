@@ -1,4 +1,6 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using NhnCommon.Models;
 
 namespace NhnCommon.Modules
@@ -33,6 +35,7 @@ namespace NhnCommon.Modules
             return endpoints;
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         private static async Task<IResult> HandleSayHelloAsync(HelloRequest helloRequest,
             IValidator<HelloRequest> validator)
         {

@@ -18,6 +18,6 @@ public class PrincipalSettings
 {
     public string IdClaimType { get; set; } = string.Empty;
     public string ResourceAccessClaimType { get; set; } = string.Empty;
-    public string ResourceAccessI3PortalBackendContext { get; set; } = string.Empty;
+    public string ResourceAccessContext { get; set; } = string.Empty;
     public string ResourceAccessContextRoles { get; set; } = string.Empty;
 }

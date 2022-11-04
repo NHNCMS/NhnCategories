@@ -31,20 +31,13 @@ public class ClaimsTransformers : IClaimsTransformation
         return await Task.FromResult(principal);
     }
     
-    private async Task<IEnumerable<string>> UserAuthorizations(ClaimsPrincipal principal)
+    private Task<IEnumerable<string>> UserAuthorizations(ClaimsPrincipal principal)
     {
         var sub = principal.Claims.FirstOrDefault(c => c.Type == _settings.PrincipalSettings.IdClaimType)?.Value;
         if (sub is null)
-            return new List<string>();
-
-        // var resultUser = await _usersService.GetUserAsync(sub);
-        // if (resultUser.IsLeft)
-        //     return new List<string>();
-        //
-        // var user = resultUser.RightToArray().First();
-        // return user.Authorizations.ToList();
-
-        return Enumerable.Empty<string>();
+            return Task.FromResult<IEnumerable<string>>(new List<string>());
+        
+        return Task.FromResult(Enumerable.Empty<string>());
     }
     
     private IEnumerable<string> ResourceAccessAuthorizations(ClaimsPrincipal principal)
@@ -58,10 +51,10 @@ public class ClaimsTransformers : IClaimsTransformation
             if (string.IsNullOrEmpty(jsonString)) return emptyAuthorizations;
 
             var resources = JObject.Parse(jsonString);
-            var i3portalBackendResources = resources[_settings.PrincipalSettings.ResourceAccessI3PortalBackendContext];
-            if (i3portalBackendResources is null) return emptyAuthorizations;
+            var backendResources = resources[_settings.PrincipalSettings.ResourceAccessContext];
+            if (backendResources is null) return emptyAuthorizations;
 
-            var roles = i3portalBackendResources[_settings.PrincipalSettings.ResourceAccessContextRoles]
+            var roles = backendResources[_settings.PrincipalSettings.ResourceAccessContextRoles]
                 .ToObject<string[]>();
 
             return roles is null
