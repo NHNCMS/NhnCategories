@@ -31,7 +31,7 @@ public sealed class SwaggerModule : IModule
         options.OperationFilter<SecurityRequirementsOperationFilter>();
         options.SwaggerDoc("v1", new OpenApiInfo
         {
-            Title = "NHN Common Api",
+            Title = "NHN Api",
             Version = "v1"
         });
         options.AddSecurityDefinition(BearerAuthId, new OpenApiSecurityScheme
@@ -42,20 +42,6 @@ public sealed class SwaggerModule : IModule
             Scheme = JwtBearerDefaults.AuthenticationScheme,
             BearerFormat = "JWT",
             Description = "Please enter a valid token"
-        });
-        options.AddSecurityRequirement(new OpenApiSecurityRequirement
-        {
-            {
-                new OpenApiSecurityScheme()
-                {
-                    Reference = new OpenApiReference()
-                    {
-                        Id = "Bearer",
-                        Type = ReferenceType.SecurityScheme
-                    }
-                },
-                new List<string>()
-            }
         });
 
         ConfigureXmlComments(options);
