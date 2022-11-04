@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["BrewUpApiTemplate/BrewUpApiTemplate.csproj", "BrewUpApiTemplate/"]
-RUN dotnet restore "BrewUpApiTemplate/BrewUpApiTemplate.csproj"
+COPY ["NhnCommon/NhnCommon.csproj", "NhnCommon/"]
+RUN dotnet restore "NhnCommon/NhnCommon.csproj"
 COPY . .
-WORKDIR "/src/BrewUpApiTemplate"
-RUN dotnet build "BrewUpApiTemplate.csproj" -c Release -o /app/build
+WORKDIR "/src/NhnCommon"
+RUN dotnet build "NhnCommon.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "BrewUpApiTemplate.csproj" -c Release -o /app/publish
+RUN dotnet publish "NhnCommon.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "BrewUpApiTemplate.dll"]
+ENTRYPOINT ["dotnet", "NhnCommon.dll"]

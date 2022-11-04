@@ -54,7 +54,7 @@ public class ClaimsTransformers : IClaimsTransformation
             var backendResources = resources[_settings.PrincipalSettings.ResourceAccessContext];
             if (backendResources is null) return emptyAuthorizations;
 
-            var roles = backendResources[_settings.PrincipalSettings.ResourceAccessContextRoles]
+            var roles = backendResources[_settings.PrincipalSettings.ResourceAccessContextRoles]?
                 .ToObject<string[]>();
 
             return roles is null
