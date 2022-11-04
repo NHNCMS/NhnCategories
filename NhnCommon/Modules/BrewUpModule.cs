@@ -3,19 +3,28 @@ using NhnCommon.Models;
 
 namespace NhnCommon.Modules
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public sealed class BrewUpModule : IModule
     {
-        public bool IsEnabled { get; } = true;
-        public int Order { get; }
+        public bool IsEnabled => true;
+        public int Order => 0;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IServiceCollection RegisterModule(WebApplicationBuilder builder)
         {
             return builder.Services;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
         {
-            endpoints.MapPost("/brewup", SayHelloAsync)
+            endpoints.MapPost("/brewup", HandleSayHelloAsync)
                 .Produces(StatusCodes.Status202Accepted)
                 .ProducesValidationProblem()
                 .WithName("GetHelloParameters")
@@ -24,7 +33,7 @@ namespace NhnCommon.Modules
             return endpoints;
         }
 
-        private static async Task<IResult> SayHelloAsync(HelloRequest helloRequest,
+        private static async Task<IResult> HandleSayHelloAsync(HelloRequest helloRequest,
             IValidator<HelloRequest> validator)
         {
             var validationResult = await validator.ValidateAsync(helloRequest);

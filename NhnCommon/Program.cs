@@ -1,12 +1,15 @@
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using NhnCommon.Modules;
+using NhnCommon.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Register Modules
 builder.RegisterModules();
 
-builder.Services.AddFluentValidation(options => options.RegisterValidatorsFromAssemblyContaining<Program>());
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<SayHelloValidator>();
 
 var app = builder.Build();
 

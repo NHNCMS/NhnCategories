@@ -10,16 +10,24 @@ namespace NhnCommon.Modules
 {
     public class AuthenticationModule : IModule
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsEnabled => true;
         public int Order => 0;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
         public IServiceCollection RegisterModule(WebApplicationBuilder builder)
         {
             builder.Services.Configure<AppSettings>(options =>
-                builder.Configuration.GetSection("Intre").Bind(options));
+                builder.Configuration.GetSection("nhn").Bind(options));
 
             var tokenParameters = new TokenParameters();
-            builder.Configuration.GetSection("Intre:TokenParameters").Bind(tokenParameters);
+            builder.Configuration.GetSection("nhn:TokenParameters").Bind(tokenParameters);
 
             builder.Services.AddTransient<IClaimsTransformation, ClaimsTransformers>();
 
@@ -32,6 +40,11 @@ namespace NhnCommon.Modules
             return builder.Services;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="endpoints"></param>
+        /// <returns></returns>
         public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
         {
             return endpoints;
@@ -98,7 +111,7 @@ namespace NhnCommon.Modules
 
             var error = new
             {
-                Title = "Intré Security",
+                Title = "NHN Security",
                 StatusCodes = StatusCodes.Status401Unauthorized,
                 Code = "Unauthorized",
                 Details = ex.Message
