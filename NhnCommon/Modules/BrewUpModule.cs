@@ -26,7 +26,7 @@ namespace NhnCommon.Modules
         /// </summary>
         public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
         {
-            endpoints.MapPost("/brewup", HandleSayHelloAsync)
+            endpoints.MapPost("/v1/brewup", HandleSayHelloAsync)
                 .Produces(StatusCodes.Status202Accepted)
                 .ProducesValidationProblem()
                 .WithName("GetHelloParameters")

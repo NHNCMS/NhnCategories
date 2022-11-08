@@ -24,4 +24,8 @@
         <ProjectReference Include="..\NhnCommon.Shared\NhnCommon.Shared.csproj"/>
     </ItemGroup>
 
+	<ItemGroup>
+		<InternalsVisibleTo Include="NhnCommon.Tests"/>
+	</ItemGroup>
+
 </Project>
