@@ -1,0 +1,22 @@
+name: Build NhNCommon
+
+on:
+  push:
+    branches: [ "develop" ]
+  workflow_dispatch:
+    
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Login
+      run: docker login rg.nl-ams.scw.cloud/nhn-cms -u nologin -p ${{ secrets.DockerPassword }}
+    - name: Build NhNCommon image
+      run: docker build . --file Dockerfile --tag rg.nl-ams.scw.cloud/nhn-cms/nhn-common:latest
+    - name: Push
+      run: docker push rg.nl-ams.scw.cloud/nhn-cms/nhn-common:latest
