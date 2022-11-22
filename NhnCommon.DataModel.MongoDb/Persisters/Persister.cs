@@ -3,9 +3,9 @@ using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using NhnCommon.DataModel.Abstracts;
 
-namespace NhnCommon.DataModel.MongoDb.Persister;
+namespace NhnCommon.DataModel.MongoDb.Persisters;
 
-public class Persister<T>:IPersister<T> where T:ModelBase
+public class Persister<T> : IPersister<T> where T : ModelBase
 {
     private readonly IMongoDatabase _mongoDatabase;
     private readonly ILogger _logger;
@@ -15,7 +15,7 @@ public class Persister<T>:IPersister<T> where T:ModelBase
         _mongoDatabase = mongoDatabase;
         _logger = loggerFactory.CreateLogger(GetType());
     }
-    
+
     public async Task<T> GetById(Guid id)
     {
         try
@@ -68,9 +68,9 @@ public class Persister<T>:IPersister<T> where T:ModelBase
     {
         throw new NotImplementedException();
     }
-    
-    
-    private static string MapToMongoDbCollectionName() 
+
+
+    private static string MapToMongoDbCollectionName()
     {
         return typeof(T).Name;
     }
