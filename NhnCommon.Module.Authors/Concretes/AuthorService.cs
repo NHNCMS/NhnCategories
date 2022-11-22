@@ -5,7 +5,7 @@ using NhnCommon.Module.Authors.Abstracts;
 
 namespace NhnCommon.Module.Authors.Concretes;
 
-public sealed class AuthorService : IAuthorService
+internal sealed class AuthorService : IAuthorService
 {
     private readonly IPersister<AuthorModel> _persister;
 

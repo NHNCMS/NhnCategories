@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NhnCommon.Model.Author.Extensions.Dtos;
+using NhnCommon.Module.Authors;
 using NhnCommon.Module.Authors.Abstracts;
 using NhnCommon.Module.Authors.Concretes;
 
@@ -12,7 +13,8 @@ public class AuthorsModule : IModule
 
     public IServiceCollection RegisterModule(WebApplicationBuilder builder)
     {
-        builder.Services.AddScoped<IAuthorService, AuthorService>();
+        builder.Services.AddAuthorServices();
+        
         return builder.Services;
     }
 
