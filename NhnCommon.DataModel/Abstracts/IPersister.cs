@@ -4,12 +4,12 @@ namespace NhnCommon.DataModel.Abstracts;
 
 public interface IPersister<T>
 {
-    Task<T> GetById(Guid id);
+    Task<T> GetById(string id);
     Task Insert(T dtoToInsert) ;
     Task Replace(T dtoToUpdate) ;
-    Task UpdateOne(Guid id, Dictionary<string, object> propertiesToUpdate) ;
+    Task UpdateOne(string id, Dictionary<string, object> propertiesToUpdate) ;
 
-    Task<string>Delete(string id);
+    Task Delete(string id);
     Task DeleteMany(Expression<Func<T, bool>> filter);
     Task<IEnumerable<T>> Find(Expression<Func<T, bool>>? filter = null);
 

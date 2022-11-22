@@ -16,7 +16,7 @@ internal sealed class AuthorService : IAuthorService
 
     public async Task<AuthorDto> GetAuthor(string authorId)
     {
-        var authorModel = await _persister.GetById(new Guid(authorId)); 
+        var authorModel = await _persister.GetById(authorId); 
         return authorModel.ToDto();
         
     }

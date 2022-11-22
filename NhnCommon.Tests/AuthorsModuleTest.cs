@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using NhnCommon.Model.Author.Extensions.Dtos;
@@ -19,7 +20,7 @@ public class AuthorModuleTest
     [Fact]
     public async Task Can_Invoke_GetAuthors()
     {
-        var authorId = "pippo";
+        var authorId =  Guid.NewGuid() ;
         var expectedAuthor = new AuthorDto();
 
         var getResult = await _integrationFixture.Client.GetAsync($"/v1/authors/{authorId}");

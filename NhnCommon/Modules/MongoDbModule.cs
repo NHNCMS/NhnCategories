@@ -18,8 +18,6 @@ public class MongoDbModule : IModule
         return builder.Services;
     }
 
-    public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
-    {
-        throw new NotImplementedException();
-    }
+    public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints) => endpoints;
+
 }
