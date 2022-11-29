@@ -15,11 +15,23 @@ public class AuthorModel : ModelBase
 
     public string Bio { get; private set; } = string.Empty;
 
-    public static AuthorModel CreateAuthorModel(CreateAuthorDto dto)
+    public static AuthorModel CreateAuthorModel(AuthorWithoutIdDto dto)
     {
         return new AuthorModel
         {
             Id = Guid.NewGuid().ToString(),
+            Name = dto.Name,
+            Mail = dto.Mail,
+            Bio = dto.Bio
+        };
+    }
+
+
+    public static AuthorModel ReplaceAuthorModel(string authorId, AuthorWithoutIdDto dto)
+    {
+        return new AuthorModel
+        {
+            Id = authorId,
             Name = dto.Name,
             Mail = dto.Mail,
             Bio = dto.Bio

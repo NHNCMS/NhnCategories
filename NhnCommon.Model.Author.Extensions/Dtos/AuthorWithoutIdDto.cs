@@ -1,6 +1,6 @@
 ﻿namespace NhnCommon.Model.Author.Extensions.Dtos;
 
-public record CreateAuthorDto
+public record AuthorWithoutIdDto
 {
     public string Name { get; init; } = string.Empty;
 

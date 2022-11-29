@@ -6,9 +6,9 @@ public interface IAuthorService
 {
     Task<AuthorDto> GetAuthor(string authorId);
 
-    Task<string> CreateAuthor(CreateAuthorDto newAuthor);
+    Task<string> CreateAuthor(AuthorWithoutIdDto newAuthorWithoutId);
 
-    Task<string> UpdateAuthor(string authorId);
+    Task<string> UpdateAuthor(string authorId, AuthorWithoutIdDto newAuthorWithoutId);
 
     Task<string> DeleteAuthor(string authorId);
 }

@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using NhnCommon.Model.Author.Extensions.Dtos;
+﻿using NhnCommon.Model.Author.Extensions.Dtos;
 using NhnCommon.Module.Authors;
-using NhnCommon.Module.Authors.Abstracts;
+using NhnCommon.Module.Authors.Endpoints;
 
 namespace NhnCommon.Modules;
 
@@ -21,33 +20,25 @@ public class AuthorsModule : IModule
     {
         var endpointGroup = endpoints.MapGroup("v1/authors").WithTags("Authors");
 
-        endpointGroup.MapGet("{id}", HandleGetAuthor)
+        endpointGroup.MapGet("{id}", AuthorsEndpoints.HandleGetAuthor)
             .Produces(StatusCodes.Status200OK, typeof(AuthorDto))
             .Produces(StatusCodes.Status404NotFound)
             .WithName("GetAuthor");
 
-        endpointGroup.MapPost(string.Empty, HandleCreateAuthor)
+        endpointGroup.MapPost(string.Empty, AuthorsEndpoints.HandleCreateAuthor)
             .Produces(StatusCodes.Status201Created, typeof(IdDto))
             .WithName("CreateAuthor");
 
+        endpointGroup.MapPut("{id}", AuthorsEndpoints.HandleReplaceAuthor)
+            .Produces(StatusCodes.Status200OK, typeof(IdDto))
+            .Produces(StatusCodes.Status404NotFound)
+            .WithName("ReplaceAuthor");
+
+        endpointGroup.MapDelete("{id}", AuthorsEndpoints.HandleDeleteAuthor)
+            .Produces(StatusCodes.Status202Accepted)
+            .Produces(StatusCodes.Status404NotFound)
+            .WithName("DeleteAuthor");
+
         return endpoints;
-    }
-
-    private static async Task<IResult> HandleCreateAuthor(IAuthorService service, [FromBody] CreateAuthorDto author)
-    {
-        var createdAuthorId = await service.CreateAuthor(author);
-        return Results.Created($"/{createdAuthorId}", new IdDto(createdAuthorId));
-    }
-
-    private static async Task<IResult> HandleGetAuthor(IAuthorService service, [FromRoute] string id)
-    {
-        try
-        {
-            return Results.Ok(await service.GetAuthor(id));
-        }
-        catch (Exception)
-        {
-            return Results.NotFound();
-        }
     }
 }

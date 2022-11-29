@@ -20,21 +20,26 @@ internal sealed class AuthorService : IAuthorService
         return string.IsNullOrWhiteSpace(authorModel.Id) ? throw new Exception() : authorModel.ToDto();
     }
 
-    public async Task<string> CreateAuthor(CreateAuthorDto newAuthor)
+    public async Task<string> CreateAuthor(AuthorWithoutIdDto newAuthorWithoutId)
     {
-        var authorModel = AuthorModel.CreateAuthorModel(newAuthor);
+        var authorModel = AuthorModel.CreateAuthorModel(newAuthorWithoutId);
         await _persister.Insert(authorModel);
 
         return authorModel.Id;
     }
 
-    public Task<string> UpdateAuthor(string authorId)
+    public async Task<string> UpdateAuthor(string authorId, AuthorWithoutIdDto author)
     {
-        throw new NotImplementedException();
+        var authorModel = AuthorModel.ReplaceAuthorModel(authorId, author);
+        await _persister.Replace(authorModel);
+
+        return authorModel.Id;
     }
 
-    public Task<string> DeleteAuthor(string authorId)
+    public async Task<string> DeleteAuthor(string authorId)
     {
-        throw new NotImplementedException();
+        await _persister.Delete(authorId);
+
+        return authorId;
     }
 }
