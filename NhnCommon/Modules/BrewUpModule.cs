@@ -35,7 +35,7 @@ namespace NhnCommon.Modules
             return endpoints;
         }
 
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         private static async Task<IResult> HandleSayHelloAsync(HelloRequest helloRequest,
             IValidator<HelloRequest> validator)
         {

@@ -2,13 +2,12 @@
 using NhnCommon.Model.Author.Extensions.Dtos;
 using NhnCommon.Module.Authors;
 using NhnCommon.Module.Authors.Abstracts;
-using NhnCommon.Module.Authors.Concretes;
 
 namespace NhnCommon.Modules;
 
 public class AuthorsModule : IModule
 {
-    public bool IsEnabled => true;
+    public bool IsEnabled => false;
     public int Order => 0;
 
     public IServiceCollection RegisterModule(WebApplicationBuilder builder)
