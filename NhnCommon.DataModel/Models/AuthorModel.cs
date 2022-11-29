@@ -5,7 +5,6 @@ namespace NhnCommon.DataModel.Models;
 
 public class AuthorModel : ModelBase
 {
-    public string Id { get; private set; } = string.Empty;
 
     public string Name { get; private set; } = string.Empty;
 

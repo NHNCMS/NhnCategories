@@ -2,8 +2,11 @@
 
 public class AppSettings
 {
+    public const string SectionName = "nhn";
+
     public TokenParameters TokenParameters { get; set; } = new();
     public PrincipalSettings PrincipalSettings { get; set; } = new();
+    public MongoDbParameter MongoDbParameters { get; set; } = new();
 }
 
 public class TokenParameters
@@ -20,4 +23,10 @@ public class PrincipalSettings
     public string ResourceAccessClaimType { get; set; } = string.Empty;
     public string ResourceAccessContext { get; set; } = string.Empty;
     public string ResourceAccessContextRoles { get; set; } = string.Empty;
+}
+
+public class MongoDbParameter
+{
+    public string ConnectionString { get; set; }
+    public string DatabaseName { get; set; }
 }

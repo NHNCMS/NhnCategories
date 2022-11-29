@@ -27,7 +27,7 @@ public class AuthorsModule : IModule
         return endpoints;
     }
 
-    private async Task<AuthorDto> HandleGetAuthors(IAuthorService service, [FromRoute] string id)
+    private static async Task<AuthorDto> HandleGetAuthors(IAuthorService service, [FromRoute] string id)
     {
        return await service.GetAuthor(id);
     }
