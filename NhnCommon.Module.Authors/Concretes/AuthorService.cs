@@ -28,12 +28,24 @@ internal sealed class AuthorService : IAuthorService
         return authorModel.Id;
     }
 
-    public async Task<string> UpdateAuthor(string authorId, AuthorWithoutIdDto author)
+    public async Task<string> ReplaceAuthor(string authorId, AuthorWithoutIdDto author)
     {
         var authorModel = AuthorModel.ReplaceAuthorModel(authorId, author);
         await _persister.Replace(authorModel);
 
         return authorModel.Id;
+    }
+
+    public async Task<string> UpdateAuthor(string authorId, AuthorPatchDto patchDto)
+    {
+        var propsToUpdate = patchDto.GetType().GetProperties()
+            .ToDictionary(pi => pi.Name, pi => pi.GetValue(patchDto))
+            .Where(pi => pi.Value != null)
+            .ToDictionary(el => el.Key, el => el.Value!);
+
+        await _persister.UpdateOne(authorId, propsToUpdate);
+
+        return authorId;
     }
 
     public async Task<string> DeleteAuthor(string authorId)

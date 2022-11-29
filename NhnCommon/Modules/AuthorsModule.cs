@@ -34,6 +34,11 @@ public class AuthorsModule : IModule
             .Produces(StatusCodes.Status404NotFound)
             .WithName("ReplaceAuthor");
 
+        endpointGroup.MapPatch("{id}", AuthorsEndpoints.HandlePatchAuthor)
+            .Produces(StatusCodes.Status200OK, typeof(IdDto))
+            .Produces(StatusCodes.Status404NotFound)
+            .WithName("UpdateAuthor");
+
         endpointGroup.MapDelete("{id}", AuthorsEndpoints.HandleDeleteAuthor)
             .Produces(StatusCodes.Status202Accepted)
             .Produces(StatusCodes.Status404NotFound)

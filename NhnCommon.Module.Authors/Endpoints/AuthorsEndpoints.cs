@@ -31,10 +31,24 @@ public static class AuthorsEndpoints
     {
         try
         {
-            var idAuthor = await service.UpdateAuthor(id, author);
+            var idAuthor = await service.ReplaceAuthor(id, author);
             return Results.Ok(new IdDto(idAuthor));
         }
         catch (Exception)
+        {
+            return Results.NotFound();
+        }
+    }
+
+    public static async Task<IResult> HandlePatchAuthor(IAuthorService service, [FromRoute] string id,
+        [FromBody] AuthorPatchDto body)
+    {
+        try
+        {
+            var idAuthor = await service.UpdateAuthor(id, body);
+            return Results.Ok(new IdDto(idAuthor));
+        }
+        catch
         {
             return Results.NotFound();
         }

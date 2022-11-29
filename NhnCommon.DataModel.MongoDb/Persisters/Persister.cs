@@ -67,6 +67,9 @@ public class Persister<T> : IPersister<T> where T : ModelBase
     {
         try
         {
+            if (!propertiesToUpdate.Any())
+                return;
+
             var collection = _mongoDatabase.GetCollection<T>(MapToMongoDbCollectionName());
 
             var updateDefinition = propertiesToUpdate

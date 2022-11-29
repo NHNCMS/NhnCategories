@@ -8,7 +8,9 @@ public interface IAuthorService
 
     Task<string> CreateAuthor(AuthorWithoutIdDto newAuthorWithoutId);
 
-    Task<string> UpdateAuthor(string authorId, AuthorWithoutIdDto newAuthorWithoutId);
+    Task<string> ReplaceAuthor(string authorId, AuthorWithoutIdDto newAuthorWithoutId);
+
+    Task<string> UpdateAuthor(string authorId, AuthorPatchDto patchDto);
 
     Task<string> DeleteAuthor(string authorId);
 }
