@@ -37,6 +37,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.Module.Categories
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.Model.Category.Extensions", "NhnCommon.Model.Category.Extensions\NhnCommon.Model.Category.Extensions.csproj", "{ECAE54A7-C702-46E5-B039-61CE03C1155B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{1D6A9DA1-9FD6-47F6-9BC1-A7C5F406648A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.Module.Shared.Extensions", "NhnCommon.Module.Shared.Extensions\NhnCommon.Module.Shared.Extensions.csproj", "{73ECA32F-1CAA-4A1E-8618-6A0EF6AADA8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +83,10 @@ Global
 		{ECAE54A7-C702-46E5-B039-61CE03C1155B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECAE54A7-C702-46E5-B039-61CE03C1155B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECAE54A7-C702-46E5-B039-61CE03C1155B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73ECA32F-1CAA-4A1E-8618-6A0EF6AADA8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73ECA32F-1CAA-4A1E-8618-6A0EF6AADA8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73ECA32F-1CAA-4A1E-8618-6A0EF6AADA8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73ECA32F-1CAA-4A1E-8618-6A0EF6AADA8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -96,6 +104,8 @@ Global
 		{2F0750F9-35DF-4EB1-9795-1E4110C14B60} = {CE00BDB3-E38D-4DF4-994F-819991F10CF9}
 		{949BB137-7BCB-4356-9E9C-27D7DF1B2B30} = {2F0750F9-35DF-4EB1-9795-1E4110C14B60}
 		{ECAE54A7-C702-46E5-B039-61CE03C1155B} = {2F0750F9-35DF-4EB1-9795-1E4110C14B60}
+		{1D6A9DA1-9FD6-47F6-9BC1-A7C5F406648A} = {CE00BDB3-E38D-4DF4-994F-819991F10CF9}
+		{73ECA32F-1CAA-4A1E-8618-6A0EF6AADA8D} = {1D6A9DA1-9FD6-47F6-9BC1-A7C5F406648A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CEA4B668-5945-4EBD-BFA7-4DAF9BA5F223}
