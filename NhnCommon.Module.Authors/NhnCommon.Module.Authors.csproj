@@ -13,7 +13,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\NhnCommon.DataModel\NhnCommon.DataModel.csproj" />
-        <ProjectReference Include="..\NhnCommon.Model.Author.Extensions\NhnCommon.Model.Author.Extensions.csproj" />
+        <ProjectReference Include="..\NhnCommon.Module.Authors.Extensions\NhnCommon.Module.Authors.Extensions.csproj" />
         <ProjectReference Include="..\NhnCommon.Module.Shared.Extensions\NhnCommon.Module.Shared.Extensions.csproj" />
     </ItemGroup>
 

@@ -1,7 +1,6 @@
-﻿using NhnCommon.Model.Author.Extensions.Dtos;
-using NhnCommon.Model.Category.Extensions.Dtos;
-using NhnCommon.Module.Categories;
+﻿using NhnCommon.Module.Categories;
 using NhnCommon.Module.Categories.Endpoints;
+using NhnCommon.Module.Categories.Extensions.Dtos;
 using NhnCommon.Module.Shared.Extensions.Dtos;
 
 namespace NhnCommon.Modules;

@@ -8,7 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\NhnCommon.DataModel\NhnCommon.DataModel.csproj" />
-      <ProjectReference Include="..\NhnCommon.Model.Category.Extensions\NhnCommon.Model.Category.Extensions.csproj" />
+      <ProjectReference Include="..\NhnCommon.Module.Categories.Extensions\NhnCommon.Module.Categories.Extensions.csproj" />
       <ProjectReference Include="..\NhnCommon.Module.Shared.Extensions\NhnCommon.Module.Shared.Extensions.csproj" />
     </ItemGroup>
 

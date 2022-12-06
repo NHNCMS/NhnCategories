@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NhnCommon.Model.Author.Extensions.Dtos;
 using NhnCommon.Module.Authors.Abstracts;
+using NhnCommon.Module.Authors.Extensions.Dtos;
 using NhnCommon.Module.Shared.Extensions.Dtos;
 
 namespace NhnCommon.Module.Authors.Endpoints;

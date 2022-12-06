@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NhnCommon.Model.Author.Extensions\NhnCommon.Model.Author.Extensions.csproj" />
-      <ProjectReference Include="..\NhnCommon.Model.Category.Extensions\NhnCommon.Model.Category.Extensions.csproj" />
+      <ProjectReference Include="..\NhnCommon.Module.Authors.Extensions\NhnCommon.Module.Authors.Extensions.csproj" />
+      <ProjectReference Include="..\NhnCommon.Module.Categories.Extensions\NhnCommon.Module.Categories.Extensions.csproj" />
     </ItemGroup>
 
 </Project>

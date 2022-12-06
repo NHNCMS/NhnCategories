@@ -1,4 +1,4 @@
-﻿namespace NhnCommon.Model.Author.Extensions.Dtos;
+﻿namespace NhnCommon.Module.Authors.Extensions.Dtos;
 
 public record AuthorPatchDto
 {

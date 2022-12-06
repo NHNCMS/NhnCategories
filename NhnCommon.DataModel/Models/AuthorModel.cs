@@ -1,5 +1,5 @@
 ﻿using NhnCommon.DataModel.Abstracts;
-using NhnCommon.Model.Author.Extensions.Dtos;
+using NhnCommon.Module.Authors.Extensions.Dtos;
 
 namespace NhnCommon.DataModel.Models;
 

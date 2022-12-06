@@ -1,4 +1,4 @@
-﻿namespace NhnCommon.Model.Category.Extensions.Dtos;
+﻿namespace NhnCommon.Module.Categories.Extensions.Dtos;
 
 public record CategoryPatchDto
 {

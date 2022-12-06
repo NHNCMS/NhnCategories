@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using NhnCommon.Model.Author.Extensions.Dtos;
+using NhnCommon.Module.Authors.Extensions.Dtos;
 using Xunit;
 
 namespace NhnCommon.Tests;
