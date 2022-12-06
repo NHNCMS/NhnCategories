@@ -24,6 +24,7 @@
         <ProjectReference Include="..\NhnCommon.DataModel.MongoDb\NhnCommon.DataModel.MongoDb.csproj" />
         <ProjectReference Include="..\NhnCommon.Model.Author.Extensions\NhnCommon.Model.Author.Extensions.csproj" />
         <ProjectReference Include="..\NhnCommon.Module.Authors\NhnCommon.Module.Authors.csproj" />
+        <ProjectReference Include="..\NhnCommon.Module.Categories\NhnCommon.Module.Categories.csproj" />
         <ProjectReference Include="..\NhnCommon.Shared\NhnCommon.Shared.csproj" />
     </ItemGroup>
 

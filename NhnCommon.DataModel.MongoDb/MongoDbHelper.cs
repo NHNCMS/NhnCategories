@@ -25,6 +25,7 @@ public static class MongoDbHelper
             return database;
         });
         services.AddScoped<IPersister<AuthorModel>, Persister<AuthorModel>>();
+        services.AddScoped<IPersister<CategoryModel>, Persister<CategoryModel>>();
         //services.AddScoped<IObjectPersister, ObjectPersister>();
         //services.AddScoped<ValidationHandler>();
         //services.AddFluentValidation(options =>
