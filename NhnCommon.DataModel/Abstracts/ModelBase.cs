@@ -2,7 +2,7 @@
 
 public class ModelBase:IModelBase
 {
-    public Guid Id { get; protected set; } = Guid.Empty;
+    public string Id { get; protected set; } = string.Empty;
     public override int GetHashCode() => Id.GetHashCode();
     public override bool Equals(object obj) => Equals(obj as ModelBase);
     public bool Equals(ModelBase other) => (null != other) && (GetType() == other.GetType()) && (other.Id == Id);

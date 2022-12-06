@@ -16,23 +16,42 @@ internal sealed class AuthorService : IAuthorService
 
     public async Task<AuthorDto> GetAuthor(string authorId)
     {
-        var authorModel = await _persister.GetById(new Guid(authorId)); 
-        return authorModel.ToDto();
-        
+        var authorModel = await _persister.GetById(authorId);
+        return string.IsNullOrWhiteSpace(authorModel.Id) ? throw new Exception() : authorModel.ToDto();
     }
 
-    public Task<string> CreateAuthor(AuthorDto newAuthor)
+    public async Task<string> CreateAuthor(AuthorWithoutIdDto newAuthorWithoutId)
     {
-        throw new NotImplementedException();
+        var authorModel = AuthorModel.CreateAuthorModel(newAuthorWithoutId);
+        await _persister.Insert(authorModel);
+
+        return authorModel.Id;
     }
 
-    public Task<string> UpdateAuthor(string authorId)
+    public async Task<string> ReplaceAuthor(string authorId, AuthorWithoutIdDto author)
     {
-        throw new NotImplementedException();
+        var authorModel = AuthorModel.ReplaceAuthorModel(authorId, author);
+        await _persister.Replace(authorModel);
+
+        return authorModel.Id;
     }
 
-    public Task<string> DeleteAuthor(string authorId)
+    public async Task<string> UpdateAuthor(string authorId, AuthorPatchDto patchDto)
     {
-        throw new NotImplementedException();
+        var propsToUpdate = patchDto.GetType().GetProperties()
+            .ToDictionary(pi => pi.Name, pi => pi.GetValue(patchDto))
+            .Where(pi => pi.Value != null)
+            .ToDictionary(el => el.Key, el => el.Value!);
+
+        await _persister.UpdateOne(authorId, propsToUpdate);
+
+        return authorId;
+    }
+
+    public async Task<string> DeleteAuthor(string authorId)
+    {
+        await _persister.Delete(authorId);
+
+        return authorId;
     }
 }

@@ -2,5 +2,5 @@
 
 public interface IModelBase
 {
-    Guid Id { get; }
+    string Id { get; }
 }
