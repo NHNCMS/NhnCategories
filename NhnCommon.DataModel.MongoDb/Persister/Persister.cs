@@ -23,7 +23,7 @@ public class Persister<T>:IPersister<T> where T:ModelBase
         {
 	        var collection = _mongoDatabase.GetCollection<T>(MapToMongoDbCollectionName()).AsQueryable();
 
-            var results = await Task.Run(() => collection.Where(t => t.Id.Equals(id));
+            var results = await Task.Run(() => collection.Where(t => t.Id.Equals(id)));
             return await results.AnyAsync()
 	            ? results.First()
 	            : ConstructEntity();
