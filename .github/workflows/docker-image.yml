@@ -7,11 +7,8 @@ on:
     
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Login
@@ -20,3 +17,20 @@ jobs:
       run: docker build . --file Dockerfile --tag rg.nl-ams.scw.cloud/nhn-cms/nhn-common:latest
     - name: Push
       run: docker push rg.nl-ams.scw.cloud/nhn-cms/nhn-common:latest
+      
+  deployment:
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: 'Deploy'
+      uses: 'deliverybot/helm@v1'
+      with:
+        release: 'nhn-chart'
+        namespace: 'nhn'
+        repository: 'https://github.com/NHNCMS/NhnCharts.git'
+        chart: 'app'
+        token: '${{ github.token }}'
+      env:
+        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
+
