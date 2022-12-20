@@ -26,7 +26,7 @@ jobs:
       run: echo "${{ secrets.DockerPassword }}" | helm registry login rg.nl-ams.scw.cloud/nhn-cms -u nologin --password-stdin 
       
     - name: Login to k8s cluster
-    - uses: actions-hub/kubectl@master
+      uses: actions-hub/kubectl@master
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
 
