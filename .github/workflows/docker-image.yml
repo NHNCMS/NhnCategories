@@ -24,14 +24,8 @@ jobs:
     steps:
     - name: Login OCI registry
       run: echo "${{ secrets.DockerPassword }}" | helm registry login rg.nl-ams.scw.cloud/nhn-cms -u nologin --password-stdin 
-    - name: Pull chart
-      run: helm pull oci://rg.nl-ams.scw.cloud/nhn-cms/nhn-chart --version 0.1.0
     - name: Deploy
-      run: helm upgrade nhn-cms oci://rg.nl-ams.scw.cloud/nhn-cms/nhn-chart \
-            --kubeconfig=${{ secrets.KUBECONFIG }} \
-            --version=0.1.0 \
-            --install \
-            --wait \
-            --atomic \
-            --namespace=nhn \
-            --create-namespace 
+      uses: WyriHaximus/github-action-helm3@v2
+      with:
+        exec: helm upgrade nhn oci://rg.nl-ams.scw.cloud/nhn-cms/nhn-chart --version 0.1.0 --install --wait --atomic --namespace=nhn --create-namespace 
+        kubeconfig: '${{ secrets.KUBECONFIG }}'
