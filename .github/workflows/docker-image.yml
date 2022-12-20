@@ -26,6 +26,5 @@ jobs:
       uses: WyriHaximus/github-action-helm3@v2
       with:
         exec: helm repo add nhn-charts rg.nl-ams.scw.cloud/nhn-cms --password ${{ secrets.DockerPassword }} --username nologin &&
-              helm repo update &&
               helm upgrade nhn nhn-charts/nhn-chart --install --wait --atomic --namespace=nhn --create-namespace 
         kubeconfig: '${{ secrets.KUBECONFIG }}'
