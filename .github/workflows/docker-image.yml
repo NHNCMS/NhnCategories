@@ -27,6 +27,7 @@ jobs:
       with:
         release: 'nhn'
         namespace: 'nhn'
+        helm: 'helm'
         chart: 'nhn/nhn-chart:0.1.0'
         repo: 'rg.nl-ams.scw.cloud/nhn-cms'
         repo-alias: nhn
