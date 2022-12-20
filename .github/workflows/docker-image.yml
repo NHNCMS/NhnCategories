@@ -27,4 +27,11 @@ jobs:
     - name: Pull chart
       run: helm pull oci://rg.nl-ams.scw.cloud/nhn-cms/nhn-chart --version 0.1.0
     - name: Deploy
-      run: helm upgrade nhn-cms oci://rg.nl-ams.scw.cloud/nhn-cms/nhn-chart --version=0.1.0 --install --wait --atomic --namespace=nhn --create-namespace --kubeconfig ${{ secrets.KUBECONFIG }}
+      run: helm upgrade nhn-cms oci://rg.nl-ams.scw.cloud/nhn-cms/nhn-chart \
+            --kubeconfig=${{ secrets.KUBECONFIG }} \
+            --version=0.1.0 \
+            --install \
+            --wait \
+            --atomic \
+            --namespace=nhn \
+            --create-namespace 
