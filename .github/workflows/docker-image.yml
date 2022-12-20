@@ -27,8 +27,9 @@ jobs:
       with:
         release: 'nhn'
         namespace: 'nhn'
-        chart: 'nhn-chart:0.1.0'
+        chart: 'nhn/nhn-chart:0.1.0'
         repo: 'rg.nl-ams.scw.cloud/nhn-cms'
+        repo-alias: nhn
         repo-username: nologin
         repo-password: ${{ secrets.DockerPassword }}
       env:
