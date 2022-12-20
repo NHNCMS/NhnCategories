@@ -22,17 +22,12 @@ jobs:
     needs: build
     runs-on: 'ubuntu-latest'
     steps:
-    - name: 'Deploy'
-      uses: 'vimeda/helm@v1.6.8'
+    - name: Setup deploy
+    - uses: actions/checkout@v3
+    - name: Setup helm
+      run: helm repo add nhn-charts rg.nl-ams.scw.cloud/nhn-cms --password ${{ secrets.DockerPassword }} --username nologin
+    - name: Deploy
+      uses: WyriHaximus/github-action-helm3@v2
       with:
-        release: 'nhn'
-        namespace: 'nhn'
-        helm: 'helm'
-        chart: 'nhn/nhn-chart:0.1.0'
-        repo: 'rg.nl-ams.scw.cloud/nhn-cms'
-        repo-alias: nhn
-        repo-username: nologin
-        repo-password: ${{ secrets.DockerPassword }}
-      env:
-        KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
-
+        exec: helm upgrade nhn nhn-charts/nhn-chart:0.1.0 --install --wait --atomic --namespace=nhn --create-namespace 
+        kubeconfig: '${{ secrets.KUBECONFIG }}'
