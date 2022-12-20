@@ -21,16 +21,15 @@ jobs:
   deployment:
     runs-on: 'ubuntu-latest'
     steps:
-    - uses: actions/checkout@v1
-
     - name: 'Deploy'
       uses: 'deliverybot/helm@v1'
       with:
-        release: 'nhn-chart'
+        release: 'nhn'
         namespace: 'nhn'
-        repository: 'https://github.com/NHNCMS/NhnCharts.git'
-        chart: 'app'
-        token: '${{ github.token }}'
+        chart: 'nhn-chart:0.1.0'
+        repo: 'rg.nl-ams.scw.cloud/nhn-cms'
+        repo-username: nologin
+        repo-password: ${{ secrets.DockerPassword }}
       env:
         KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
 
