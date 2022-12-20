@@ -27,8 +27,8 @@ jobs:
       
     - name: Login to k8s cluster
       uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+      env:
+        KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
 
     - name: Deploy
       run: helm upgrade nhn-cms oci://rg.nl-ams.scw.cloud/nhn-cms/nhn-chart \
