@@ -23,7 +23,7 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
     - name: Prep helm chart
-        run: helm repo add nhn-charts rg.nl-ams.scw.cloud/nhn-cms --password ${{ secrets.DockerPassword }} --username nologin
+      run: helm repo add nhn-charts rg.nl-ams.scw.cloud/nhn-cms --password ${{ secrets.DockerPassword }} --username nologin
     - name: Deploy
       uses: WyriHaximus/github-action-helm3@v2
       with:
