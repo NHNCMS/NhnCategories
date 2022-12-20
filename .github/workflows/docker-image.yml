@@ -23,9 +23,6 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
     - name: Prep helm chart
-      run: helm repo add nhn-charts rg.nl-ams.scw.cloud/nhn-cms --password ${{ secrets.DockerPassword }} --username nologin
+      run: echo ${{ secrets.DockerPassword }} | helm repo add nhn-charts rg.nl-ams.scw.cloud/nhn-cms --username nologin --password-stdin 
     - name: Deploy
-      uses: WyriHaximus/github-action-helm3@v2
-      with:
-        exec: helm upgrade nhn nhn-charts/nhn-chart --install --wait --atomic --namespace=nhn --create-namespace 
-        kubeconfig: '${{ secrets.KUBECONFIG }}'
+      run: helm upgrade nhn nhn-charts/nhn-chart --install --wait --atomic --namespace=nhn --create-namespace --kubeconfig ${{ secrets.KUBECONFIG }}
