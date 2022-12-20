@@ -22,18 +22,18 @@ jobs:
     needs: build
     runs-on: 'ubuntu-latest'
     steps:
-    - name: Login OCI registry
-      run: echo "${{ secrets.DockerPassword }}" | helm registry login rg.nl-ams.scw.cloud/nhn-cms -u nologin --password-stdin 
-      
-    - name: Setup kubeconfig file
-      run: echo ${{ secrets.KUBECONFIG }} > kubeconfig.config
-
-    - name: Deploy
-      run: helm upgrade nhn-cms oci://rg.nl-ams.scw.cloud/nhn-cms/nhn-chart \
-            --kubeconfig="kubeconfig.config"
-            --version=0.1.0 \
-            --install \
-            --wait \
-            --atomic \
-            --namespace=nhn \
-            --create-namespace 
+    - uses: actions/checkout@v3
+    - uses: azure/setup-helm@v3
+      with:
+        version: 'v3.6.3'
+    - uses: SamhammerAG/setup-yq@1.0.2
+    - uses: SamhammerAG/helm-action/deploy@v1.5.2
+      with:
+        registry: rg.nl-ams.scw.cloud/nhn-cms
+        registry_user: nologin
+        registry_password: ${{ secrets.DockerPassword }}
+        registry_path: nhn-chart
+        app_version: 0.1.0
+        namespace: nhn
+        release_name: nhn-chart
+        kube_config: ${{ secrets.KUBECONFIG }}
