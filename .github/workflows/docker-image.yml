@@ -19,10 +19,11 @@ jobs:
       run: docker push rg.nl-ams.scw.cloud/nhn-cms/nhn-common:latest
       
   deployment:
+    needs: build
     runs-on: 'ubuntu-latest'
     steps:
     - name: 'Deploy'
-      uses: 'deliverybot/helm@v1'
+      uses: 'vimeda/helm@v1.6.8'
       with:
         release: 'nhn'
         namespace: 'nhn'
