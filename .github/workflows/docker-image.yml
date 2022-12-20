@@ -23,6 +23,6 @@ jobs:
     runs-on: 'ubuntu-latest'
     steps:
     - name: Prep helm chart
-      run: echo "${{ secrets.DockerPassword }}" | helm upgrade nhn-charts oci://rg.nl-ams.scw.cloud/nhn-cms/nhn-charts --username nologin --password-stdin 
+      run: echo "${{ secrets.DockerPassword }}" | helm repo add nhn-charts oci://rg.nl-ams.scw.cloud/nhn-cms/nhn-charts --username nologin --password-stdin 
     - name: Deploy
       run: helm upgrade nhn nhn-charts/nhn-chart --install --wait --atomic --namespace=nhn --create-namespace --kubeconfig ${{ secrets.KUBECONFIG }}
