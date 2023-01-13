@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\NhnCommon.DataModel\NhnCommon.DataModel.csproj" />
+        <ProjectReference Include="..\NhnCommon.Module.Shared.Extensions\NhnCommon.Module.Shared.Extensions.csproj" />
+        <ProjectReference Include="..\NhnCommon.Module.Tags.Extensions\NhnCommon.Module.Tags.Extensions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
+    </ItemGroup>
+
+</Project>

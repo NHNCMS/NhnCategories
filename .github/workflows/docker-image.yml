@@ -7,11 +7,8 @@ on:
     
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Login
@@ -20,3 +17,23 @@ jobs:
       run: docker build . --file Dockerfile --tag rg.nl-ams.scw.cloud/nhn-cms/nhn-common:latest
     - name: Push
       run: docker push rg.nl-ams.scw.cloud/nhn-cms/nhn-common:latest
+      
+  deployment:
+    needs: build
+    runs-on: 'ubuntu-latest'
+    steps:
+    - uses: actions/checkout@v3
+    - uses: azure/setup-helm@v3
+      with:
+        version: 'v3.6.3'
+    - uses: SamhammerAG/setup-yq@1.0.2
+    - uses: SamhammerAG/helm-action/deploy@v1.5.2
+      with:
+        registry: oci://rg.nl-ams.scw.cloud/nhn-cms
+        registry_user: nologin
+        registry_password: ${{ secrets.DockerPassword }}
+        registry_path: nhn-chart
+        app_version: 0.1.0
+        namespace: nhn
+        release_name: nhn-chart
+        kube_config: ${{ secrets.KUBECONFIG }}

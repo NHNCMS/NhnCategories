@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NhnCommon.Model.Category.Extensions.Dtos;
 using NhnCommon.Module.Categories.Abstracts;
+using NhnCommon.Module.Categories.Extensions.Dtos;
 using NhnCommon.Module.Shared.Extensions.Dtos;
 
 namespace NhnCommon.Module.Categories.Endpoints;

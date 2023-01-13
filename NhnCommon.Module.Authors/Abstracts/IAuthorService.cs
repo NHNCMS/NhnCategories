@@ -1,4 +1,4 @@
-﻿using NhnCommon.Model.Author.Extensions.Dtos;
+﻿using NhnCommon.Module.Authors.Extensions.Dtos;
 
 namespace NhnCommon.Module.Authors.Abstracts;
 

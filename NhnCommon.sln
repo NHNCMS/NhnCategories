@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.DataModel.MongoDb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.DataModel", "NhnCommon.DataModel\NhnCommon.DataModel.csproj", "{29AD2D0F-6738-4F14-B4A5-87B19CBAC7EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.Model.Author.Extensions", "NhnCommon.Model.Author.Extensions\NhnCommon.Model.Author.Extensions.csproj", "{AD732D17-2F79-458F-8B7A-A5F9CE3341B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.Module.Authors.Extensions", "NhnCommon.Module.Authors.Extensions\NhnCommon.Module.Authors.Extensions.csproj", "{AD732D17-2F79-458F-8B7A-A5F9CE3341B5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "60 Modules", "60 Modules", "{CE00BDB3-E38D-4DF4-994F-819991F10CF9}"
 EndProject
@@ -35,11 +35,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Categories", "Categories", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.Module.Categories", "NhnCommon.Module.Categories\NhnCommon.Module.Categories.csproj", "{949BB137-7BCB-4356-9E9C-27D7DF1B2B30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.Model.Category.Extensions", "NhnCommon.Model.Category.Extensions\NhnCommon.Model.Category.Extensions.csproj", "{ECAE54A7-C702-46E5-B039-61CE03C1155B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.Module.Categories.Extensions", "NhnCommon.Module.Categories.Extensions\NhnCommon.Module.Categories.Extensions.csproj", "{ECAE54A7-C702-46E5-B039-61CE03C1155B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{1D6A9DA1-9FD6-47F6-9BC1-A7C5F406648A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.Module.Shared.Extensions", "NhnCommon.Module.Shared.Extensions\NhnCommon.Module.Shared.Extensions.csproj", "{73ECA32F-1CAA-4A1E-8618-6A0EF6AADA8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.Module.Tags", "NhnCommon.Module.Tags\NhnCommon.Module.Tags.csproj", "{F282F2F8-A847-4490-882F-039D1E953B24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhnCommon.Module.Tags.Extensions", "NhnCommon.Module.Tags.Extensions\NhnCommon.Module.Tags.Extensions.csproj", "{08498E5B-60D2-4B23-8CEE-A0142B0E3445}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tags", "Tags", "{31AB7AB8-0DC4-4084-86C8-685DCDF89A90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +93,14 @@ Global
 		{73ECA32F-1CAA-4A1E-8618-6A0EF6AADA8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73ECA32F-1CAA-4A1E-8618-6A0EF6AADA8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73ECA32F-1CAA-4A1E-8618-6A0EF6AADA8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F282F2F8-A847-4490-882F-039D1E953B24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F282F2F8-A847-4490-882F-039D1E953B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F282F2F8-A847-4490-882F-039D1E953B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F282F2F8-A847-4490-882F-039D1E953B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08498E5B-60D2-4B23-8CEE-A0142B0E3445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08498E5B-60D2-4B23-8CEE-A0142B0E3445}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08498E5B-60D2-4B23-8CEE-A0142B0E3445}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08498E5B-60D2-4B23-8CEE-A0142B0E3445}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +120,9 @@ Global
 		{ECAE54A7-C702-46E5-B039-61CE03C1155B} = {2F0750F9-35DF-4EB1-9795-1E4110C14B60}
 		{1D6A9DA1-9FD6-47F6-9BC1-A7C5F406648A} = {CE00BDB3-E38D-4DF4-994F-819991F10CF9}
 		{73ECA32F-1CAA-4A1E-8618-6A0EF6AADA8D} = {1D6A9DA1-9FD6-47F6-9BC1-A7C5F406648A}
+		{31AB7AB8-0DC4-4084-86C8-685DCDF89A90} = {CE00BDB3-E38D-4DF4-994F-819991F10CF9}
+		{F282F2F8-A847-4490-882F-039D1E953B24} = {31AB7AB8-0DC4-4084-86C8-685DCDF89A90}
+		{08498E5B-60D2-4B23-8CEE-A0142B0E3445} = {31AB7AB8-0DC4-4084-86C8-685DCDF89A90}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CEA4B668-5945-4EBD-BFA7-4DAF9BA5F223}

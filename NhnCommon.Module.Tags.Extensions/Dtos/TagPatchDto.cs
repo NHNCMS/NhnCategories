@@ -1,6 +1,6 @@
-﻿namespace NhnCommon.Model.Category.Extensions.Dtos;
+﻿namespace NhnCommon.Module.Tags.Extensions.Dtos;
 
-public record CategoryPatchDto
+public record TagPatchDto
 {
     public string? Name { get; init; }
 

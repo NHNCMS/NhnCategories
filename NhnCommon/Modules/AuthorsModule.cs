@@ -1,6 +1,6 @@
-﻿using NhnCommon.Model.Author.Extensions.Dtos;
-using NhnCommon.Module.Authors;
+﻿using NhnCommon.Module.Authors;
 using NhnCommon.Module.Authors.Endpoints;
+using NhnCommon.Module.Authors.Extensions.Dtos;
 using NhnCommon.Module.Shared.Extensions.Dtos;
 
 namespace NhnCommon.Modules;

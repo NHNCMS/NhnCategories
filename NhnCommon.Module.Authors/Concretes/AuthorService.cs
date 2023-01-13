@@ -1,7 +1,7 @@
 ﻿using NhnCommon.DataModel.Abstracts;
 using NhnCommon.DataModel.Models;
-using NhnCommon.Model.Author.Extensions.Dtos;
 using NhnCommon.Module.Authors.Abstracts;
+using NhnCommon.Module.Authors.Extensions.Dtos;
 
 namespace NhnCommon.Module.Authors.Concretes;
 

@@ -1,11 +1,11 @@
 ﻿using NhnCommon.DataModel.Abstracts;
-using NhnCommon.Module.Categories.Extensions.Dtos;
+using NhnCommon.Module.Tags.Extensions.Dtos;
 
 namespace NhnCommon.DataModel.Models;
 
-public class CategoryModel : ModelBase
+public class TagModel : ModelBase
 {
-    protected CategoryModel()
+    protected TagModel()
     {
     }
 
@@ -13,9 +13,9 @@ public class CategoryModel : ModelBase
     public string Type { get; private set; } = string.Empty;
     public string Description { get; private set; } = string.Empty;
 
-    public static CategoryModel CreateCategoryModel(CategoryWithoutIdDto dto)
+    public static TagModel CreateTagModel(TagWithoutIdDto dto)
     {
-        return new CategoryModel
+        return new TagModel
         {
             Id = Guid.NewGuid().ToString(),
             Name = dto.Name,
@@ -24,9 +24,9 @@ public class CategoryModel : ModelBase
         };
     }
 
-    public static CategoryModel ReplaceCategoryModel(string id, CategoryWithoutIdDto dto)
+    public static TagModel ReplaceTagModel(string id, TagWithoutIdDto dto)
     {
-        return new CategoryModel
+        return new TagModel
         {
             Id = id,
             Name = dto.Name,
@@ -35,9 +35,9 @@ public class CategoryModel : ModelBase
         };
     }
 
-    public CategoryDto ToDto()
+    public TagDto ToDto()
     {
-        return new CategoryDto
+        return new TagDto
         {
             Id = Id,
             Name = Name,

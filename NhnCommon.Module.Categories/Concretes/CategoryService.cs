@@ -1,7 +1,7 @@
 ﻿using NhnCommon.DataModel.Abstracts;
 using NhnCommon.DataModel.Models;
-using NhnCommon.Model.Category.Extensions.Dtos;
 using NhnCommon.Module.Categories.Abstracts;
+using NhnCommon.Module.Categories.Extensions.Dtos;
 
 namespace NhnCommon.Module.Categories.Concretes;
 
