@@ -26,5 +26,5 @@ stages:
         repository: 'nhn-cms/nhn-common'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
-        tags: $(Build.BuildId)
+        tags: $(Build.BuildNumber)
 
