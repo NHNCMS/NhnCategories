@@ -19,7 +19,7 @@ public class TagsModule : IModule
 
     public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
     {
-        var endpointGroup = endpoints.MapGroup("v1/tags").WithTags("TagsFox");
+        var endpointGroup = endpoints.MapGroup("v1/tags").WithTags("Tags");
 
         endpointGroup.MapGet("{id}", TagsEndpoints.HandleGetTag)
             .Produces(StatusCodes.Status200OK, typeof(TagDto))
