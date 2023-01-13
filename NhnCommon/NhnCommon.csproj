@@ -25,6 +25,7 @@
         <ProjectReference Include="..\NhnCommon.Module.Authors.Extensions\NhnCommon.Module.Authors.Extensions.csproj" />
         <ProjectReference Include="..\NhnCommon.Module.Authors\NhnCommon.Module.Authors.csproj" />
         <ProjectReference Include="..\NhnCommon.Module.Categories\NhnCommon.Module.Categories.csproj" />
+        <ProjectReference Include="..\NhnCommon.Module.Tags\NhnCommon.Module.Tags.csproj" />
         <ProjectReference Include="..\NhnCommon.Shared\NhnCommon.Shared.csproj" />
     </ItemGroup>
 

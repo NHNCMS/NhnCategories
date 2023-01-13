@@ -9,6 +9,7 @@
     <ItemGroup>
       <ProjectReference Include="..\NhnCommon.Module.Authors.Extensions\NhnCommon.Module.Authors.Extensions.csproj" />
       <ProjectReference Include="..\NhnCommon.Module.Categories.Extensions\NhnCommon.Module.Categories.Extensions.csproj" />
+      <ProjectReference Include="..\NhnCommon.Module.Tags.Extensions\NhnCommon.Module.Tags.Extensions.csproj" />
     </ItemGroup>
 
 </Project>

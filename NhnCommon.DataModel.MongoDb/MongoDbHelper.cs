@@ -26,6 +26,7 @@ public static class MongoDbHelper
         });
         services.AddScoped<IPersister<AuthorModel>, Persister<AuthorModel>>();
         services.AddScoped<IPersister<CategoryModel>, Persister<CategoryModel>>();
+        services.AddScoped<IPersister<TagModel>, Persister<TagModel>>();
         //services.AddScoped<IObjectPersister, ObjectPersister>();
         //services.AddScoped<ValidationHandler>();
         //services.AddFluentValidation(options =>
