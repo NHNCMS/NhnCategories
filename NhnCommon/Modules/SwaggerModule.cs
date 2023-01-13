@@ -1,8 +1,8 @@
-﻿using System.Reflection;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Reflection;
 
 namespace NhnCommon.Modules;
 
@@ -49,11 +49,15 @@ public sealed class SwaggerModule : IModule
 
     private void ConfigureXmlComments(SwaggerGenOptions options)
     {
-        // Tells swagger to pick up the output XML document file
-        options.IncludeXmlComments(Path.Combine(
+        var documentationFile = Path.Combine(
             Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!,
             $"{GetType().Assembly.GetName().Name}.xml"
-        ));
+        );
+
+        if (!File.Exists(documentationFile)) return;
+
+        // Tells swagger to pick up the output XML document file
+        options.IncludeXmlComments(documentationFile);
 
         // Collect all referenced projects output XML document file paths
         var currentAssembly = Assembly.GetExecutingAssembly();

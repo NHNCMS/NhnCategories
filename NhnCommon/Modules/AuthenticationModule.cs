@@ -1,13 +1,16 @@
-﻿using System.Text.Json;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using NhnCommon.Shared.Configuration;
 using NhnCommon.Transformers;
+using System.Text.Json;
 
 namespace NhnCommon.Modules;
 
+/// <summary>
+/// 
+/// </summary>
 public class AuthenticationModule : IModule
 {
     public bool IsEnabled => true;
